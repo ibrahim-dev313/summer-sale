@@ -53,13 +53,16 @@
     <!-- Cards -->
     <div class="bg-neutral-100 py-8 md:py-12">
         <div class="max-w-screen-xl mx-auto px-4 md:px-6">
-            <!-- KitchenWare -->
-            <h1 class="text-2xl font-bold py-4 md:py-6">Kitchenware</h1>
-            <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-12 gap-4 ">
 
-                <div class="col-span-12 lg:col-span-9">
-                    <div class="flex justify-center">
-                        <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 lg:grid-cols-12">
+                <!-- 1st Part: Takes 9 col spans on large screens -->
+                <div class="lg:col-span-9">
+                    <!-- Nested Grid System 1 -->
+                    <!-- KitchenWare -->
+                    <h1 class="text-2xl font-bold py-4 md:py-6">Kitchenware</h1>
+                    <div class="flex items-center justify-center">
+                        <div class="grid  md:grid-cols-3 gap-4">
+
                             <!-- Single Card -1 -->
                             <div onclick="handleAddToCart(this)" class="card w-72 bg-base-100 shadow-xl">
                                 <div class="px-8 m-3 bg-neutral-100 flex items-center justify-center rounded-xl py-8">
@@ -118,52 +121,14 @@
                                 </div>
                             </div>
 
-
-
                         </div>
                     </div>
-                </div>
-                <div class="col-span-12  lg:col-span-3">
-                    <!-- Cart Section -->
-                    <div class="bg-base-100 py-4 rounded px-4 mb-4 md:mb-0">
-                        <h1 class="text-xl font-medium">
-                            Have Coupon?
-                        </h1>
-                        <div class="">
-                            <label for="hs-trailing-button-add-on" class="sr-only">Label</label>
-                            <div class="flex rounded-md shadow-sm ">
-                                <input type="text" id="coupon-input" type="text" placeholder="Coupon code"
-                                    class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-l-md text-sm ">
-                                <span id="apply-button" onclick="applyCoupon()"
-                                    class="py-3 px-4 inline-flex flex-shrink-0 justify-center items-center gap-2 rounded-r-md  font-semibold cursor-not-allowed bg-pink-500 text-white   text-sm opacity-50">
-                                    Apply
-                                </span>
-                            </div>
-                        </div>
 
-                    </div>
-                    <div class="bg-base-100 p-4 mt-6 rounded">
-                        <p class="font-medium">Cart List</p>
-                        <hr>
-                        <ol id="cart-items" class="p-2 md:p-4">
-                        </ol>
-                        <hr>
-                        <p class="font-medium">Total price: <span id="total-price">0</span> TK</p>
-                        <p class="font-medium">Discount: <span id="discount">0</span> TK</p>
-                        <p class="font-medium">Total: <span id="total">0</span> TK</p>
-                        <hr>
-                        <div class="grid">
-                            <button class="btn bg-pink-500 hover:bg-pink-300 hover:text-black text-white mt-4"
-                                onclick="makePurchase()">
-                                Make Purchase
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-12 lg:col-span-9">
-                    <div class="flex justify-center">
-                        <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4">
+                    <!-- Nested Grid System 2 -->
+                    <h1 class="text-2xl font-bold py-4 md:py-6">Sportsware</h1>
 
+                    <div class="flex items-center justify-center">
+                        <div class="grid md:grid-cols-3 gap-4 mt-6">
                             <!-- Single Card -4 -->
                             <div onclick="handleAddToCart(this)" class="card w-72 bg-base-100 shadow-xl">
                                 <div class="px-8 m-3 bg-neutral-100 flex items-center justify-center rounded-xl py-8">
@@ -221,14 +186,15 @@
 
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
 
-                <div class="col-span-12 md:hidden lg:hidden  lg:col-span-3">
-                    <!-- Cart Section -->
-                    <div class="bg-base-100 py-4 rounded px-4 mb-4 md:mb-0">
+                <!-- 2nd Part: Takes 3 col spans on large screens -->
+
+                <div class="lg:col-span-3">
+                    <h1 class="text-2xl mt-6 md:mt-4 font-bold py-2 md:py-4">Cart</h1>
+                    <div class="bg-base-100 py-4 rounded-xl px-4 mb-4 md:mb-0">
                         <h1 class="text-xl font-medium">
                             Have Coupon?
                         </h1>
@@ -245,31 +211,26 @@
                         </div>
 
                     </div>
-                    <div class="bg-base-100 p-4 mt-6 rounded">
-                        <p class="font-medium">Cart List</p>
-                        <hr>
+                    <div class="bg-base-100 p-4 mt-6 rounded-xl">
+
                         <ol id="cart-items" class="p-2 md:p-4">
                         </ol>
                         <hr>
-                        <p class="font-medium">Total price: <span id="total-price">0</span> TK</p>
+                        <p class="font-medium ">Total price: <span id="total-price">0</span> TK</p>
                         <p class="font-medium">Discount: <span id="discount">0</span> TK</p>
                         <p class="font-medium">Total: <span id="total">0</span> TK</p>
                         <hr>
-                        <div class="grid">
-                            <button class="btn bg-pink-500 hover:bg-pink-300 hover:text-black text-white mt-4"
-                                onclick="makePurchase()">
-                                Make Purchase
-                            </button>
+                        <div class="grid  mt-3">
+
+                            <span id="make-purchase-button" onclick="makePurchase()"
+                                class="py-3 px-4 inline-flex flex-shrink-0 justify-center items-center gap-2 rounded-md  font-semibold cursor-not-allowed bg-pink-500 text-white   text-sm opacity-50">
+                                MAKE PURCHASE
+                            </span>
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
             </div>
+
         </div>
     </div>
 

@@ -6,7 +6,7 @@ const discountElement = document.getElementById('discount');
 const discountedTotalElement = document.getElementById('total');
 const applyButton = document.getElementById('apply-button');
 const couponInput = document.getElementById('coupon-input');
-
+const makePurchaseButton = document.getElementById('make-purchase-button');
 
 
 
@@ -28,12 +28,21 @@ function handleAddToCart(card) {
     discountedTotalElement.innerText = (totalPrice - discount).toFixed(2)
     if (totalPrice >= 200) {
         applyButton.removeAttribute('disabled');
-
         applyButton.classList.remove('cursor-not-allowed', 'opacity-50');
         applyButton.classList.add('cursor-pointer')
     } else {
         applyButton.setAttribute('disabled', 'true');
         applyButton.classList.add('cursor-not-allowed', 'opacity-50');
+    }
+
+    if (totalPrice > 0) {
+        makePurchaseButton.removeAttribute('disabled');
+        makePurchaseButton.classList.remove('cursor-not-allowed', 'opacity-50');
+        makePurchaseButton.classList.add('cursor-pointer');
+    } else {
+        makePurchaseButton.setAttribute('disabled', 'true');
+        makePurchaseButton.classList.remove('cursor-pointer');
+        makePurchaseButton.classList.add('cursor-not-allowed', 'opacity-50');
     }
 }
 
@@ -42,22 +51,22 @@ function applyCoupon() {
     if (totalPrice >= 200 && couponInput.value === 'SELL200') {
         discount = totalPrice * 0.2; // 20% discount
         discountElement.innerText = discount.toFixed(2);
-        discountedTotalElement.innerText = (totalPrice - discount).toFixed(2)
+        discountedTotalElement.innerText = (totalPrice * 0.8).toFixed(2)
     } else {
         // Reset discount and display
         discount = 0;
-        discountElement.innerText = '0';
-        discountedTotalElement.innerText = totalPrice.toFixed(2);
+
     }
 }
 function makePurchase() {
+
+
     const cartListContainer = document.getElementById('cart-items');
     const modal = document.getElementById('my_modal_1');
     const addItemsModal = document.getElementById('add_items_modal');
 
     // Check if any items are in the cart
     if (cartListContainer.children.length === 0) {
-        addItemsModal.showModal(); // Show the "Add Items" modal
         return;
     }
 
